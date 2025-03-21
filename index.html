@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗓️ Kiểm tra năm nhuận</title>
+</head>
+<body>
+<h2>🗓️ Kiểm tra năm nhuận</h2>
+<input type="number" id="year" placeholder="Nhập năm (VD: 2024)">
+<button onclick="checkLeapYear()">📅 Kiểm tra</button>
+<h3>📌 Kết quả:</h3>
+<div id="result">🔍 Chưa có kết quả</div>
+
+<script>
+    function checkLeapYear() {
+        let year = document.getElementById("year").value.trim();
+
+        if (year === "" || isNaN(year) || year <= 0) {
+            document.getElementById("result").innerHTML = "⚠️ Vui lòng nhập năm hợp lệ!";
+            return;
+        }
+
+        year = Number(year);
+
+        if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+            document.getElementById("result").innerHTML = `✅ ${year} là năm nhuận!`;
+        } else {
+            document.getElementById("result").innerHTML = `❌ ${year} không phải năm nhuận!`;
+        }
+    }
+</script>
+
+</body>
+</html>
